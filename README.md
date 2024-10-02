@@ -16,7 +16,4 @@
 2. Allow installation of apps from unknown sources in your device settings.
 3. Open the APK file and follow the on-screen instructions to complete the installation.
 
-## License
-This project is licensed under the MIT License. Please refer to the LICENSE file for more details.
-
 Thank you for playing, and enjoy challenging your memory with "Simon Says"!
