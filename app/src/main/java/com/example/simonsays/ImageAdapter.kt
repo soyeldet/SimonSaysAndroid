@@ -45,7 +45,7 @@ class ImageAdapter(val context: Context) : BaseAdapter() {
     }
 
     fun updateImage(position: Int) {
-        var changedImage = shuffledImages[position]
+        val changedImage = shuffledImages[position]
         shuffledImages[position] = shuffledImages2[position]
         notifyDataSetChanged()
         Handler(Looper.getMainLooper()).postDelayed({
