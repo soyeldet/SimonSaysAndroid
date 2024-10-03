@@ -13,18 +13,12 @@ class ImageAdapter(val context: Context) : BaseAdapter() {
 
     private val images = intArrayOf(R.drawable.blue, R.drawable.red, R.drawable.yellow, R.drawable.green)
     private val images2 = intArrayOf(R.drawable.blue2, R.drawable.red2, R.drawable.yellow2, R.drawable.green2)
-    private val shuffledImages = images.indices
-        .map { it to images[it] }
-        .shuffled()
-        .sortedBy { it.first }
-        .map { it.second }
-        .toIntArray()
 
-    private val orderedImages2 = images.indices
-        .map { it to images2[it] }
-        .sortedBy { shuffledImages.indexOf(images[it.first]) }
-        .map { it.second }
-        .toIntArray()
+    private val index = intArrayOf(0, 1, 2, 3)
+    private val shuffledIndex = index.clone().apply { shuffle() }
+
+    private val shuffledImages = IntArray(images.size) { i -> images[ shuffledIndex [i] ] }
+    private val shuffledImages2 = IntArray(images2.size) { i -> images2[ shuffledIndex [i] ] }
 
     override fun getCount(): Int {
         return shuffledImages.size
@@ -51,15 +45,13 @@ class ImageAdapter(val context: Context) : BaseAdapter() {
     }
 
     fun updateImage(position: Int) {
-        shuffledImages[position] = orderedImages2[position]
+        var changedImage = shuffledImages[position]
+        shuffledImages[position] = shuffledImages2[position]
         notifyDataSetChanged()
         Handler(Looper.getMainLooper()).postDelayed({
-            resetImages(position)
+            shuffledImages[position] = changedImage
+            notifyDataSetChanged()
         }, 1000)
     }
 
-    fun resetImages(position: Int) {
-        shuffledImages[position] = images[position]
-        notifyDataSetChanged()
-    }
 }
