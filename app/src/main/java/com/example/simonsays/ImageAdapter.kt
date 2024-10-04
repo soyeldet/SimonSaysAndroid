@@ -53,5 +53,4 @@ class ImageAdapter(val context: Context) : BaseAdapter() {
             notifyDataSetChanged()
         }, 1000)
     }
-
 }
