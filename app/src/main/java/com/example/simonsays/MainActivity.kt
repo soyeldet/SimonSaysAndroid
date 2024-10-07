@@ -15,8 +15,10 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val intent = Intent(this, StartGame::class.java)
+        val intent2 = Intent(this, Leaderboard::class.java)
         val startButton = findViewById<Button>(R.id.startGameButton)
         val playerName = findViewById<EditText>(R.id.nameEditText)
+        val leaderboardButton = findViewById<Button>(R.id.leaderboardButton)
 
         updateButtonState(playerName.text.toString(), startButton)
 
@@ -34,7 +36,14 @@ class MainActivity : AppCompatActivity() {
             intent.putExtra("PlayerName", playerName.text.toString())
             startActivity(intent)
         }
+
+        leaderboardButton.setOnClickListener{
+            startActivity(intent2)
+        }
+
     }
+
+
 
     private fun updateButtonState(input: String, button: Button) {
         button.isEnabled = input.isNotBlank()
