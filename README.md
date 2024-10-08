@@ -12,7 +12,7 @@
 - Android 5.0 (Lollipop) or higher
 
 ## Installation
-1. Download the APK file from [this link](https://github.com/soyeldet/SimonSaysAndroid/blob/master/SimonSays.apk).
+1. Download the APK file from [this link](https://github.com/soyeldet/SimonSaysAndroid/blob/master/simonsays1.2.apk).
 2. Allow installation of apps from unknown sources in your device settings.
 3. Open the APK file and follow the on-screen instructions to complete the installation.
 
